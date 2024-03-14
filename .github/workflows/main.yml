@@ -6,23 +6,10 @@ on:
       - master
 
 jobs:
-  security_scan:
-    runs-on: ubuntu-latest
+  pip-audit:
+  runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: pypa/gh-action-pip-audit@v1.0.0
         with:
-          python-version: '3.10'
-      
-      - name: Install Audit
-        run: pip install pip-audit
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Check for vulnerabilities
-        run: pip-audit -r requirement.txt
+          inputs: requirements.txt
