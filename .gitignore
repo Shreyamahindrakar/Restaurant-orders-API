@@ -1,0 +1,5 @@
+menu/__pycache__/*
+menu/migrations/__pycache__/*
+
+restarunt/__pycache__/*
+venv
