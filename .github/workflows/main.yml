@@ -6,10 +6,15 @@ on:
       - master
 
 jobs:
-  pip-audit:
-  runs-on: ubuntu-latest
-
+  selftest:
+    runs-on: ubuntu-latest
     steps:
-      - uses: pypa/gh-action-pip-audit@v1.0.0
+      - uses: actions/checkout@v3
+      - name: install
+        run: |
+          python -m venv env/
+          source env/bin/activate
+          python -m pip install .
+      - uses: pypa/gh-action-pip-audit@v1.0.8
         with:
-          inputs: requirements.txt
+          virtual-environment: env/
