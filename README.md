@@ -40,3 +40,4 @@ This is a Restaurant-Management-API.The API allows clients to perform various op
 ```bash
  python3 manage.py runserver
  ```
+
